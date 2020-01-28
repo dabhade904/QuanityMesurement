@@ -127,19 +127,5 @@ public class QuantityMeasureTest {
         Assert.assertEquals(inch, cm);
     }
 
-    @Test
-    public void givenTwoLengthValue_shouldReturnAddition() {
-        QuantityMeasurement first = new QuantityMeasurement(Unit.INCH, 2);
-        QuantityMeasurement second = new QuantityMeasurement(Unit.INCH, 2);
-        double totalValue = first.getAddition(second);
-        Assert.assertEquals(4, totalValue, 0);
-    }
 
-    @Test
-    public void given1FeetAnd2Inch_shouldReturnAddition() {
-        QuantityMeasurement first = new QuantityMeasurement(Unit.INCH, 2);
-        QuantityMeasurement second = new QuantityMeasurement(Unit.INCH, 2);
-        double totalValue = first.getAddition(second);
-        Assert.assertEquals(4, totalValue, 0);
-    }
 }
