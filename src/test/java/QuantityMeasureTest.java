@@ -115,15 +115,31 @@ public class QuantityMeasureTest {
 
     @Test
     public void given1YardAnd3Feet_shouldReturnEqual() {
-        QuantityMeasurement feet= new QuantityMeasurement(Unit.FEET, 3);
+        QuantityMeasurement feet = new QuantityMeasurement(Unit.FEET, 3);
         QuantityMeasurement yard = new QuantityMeasurement(Unit.YARD, 1);
-        Assert.assertEquals(yard,feet);
+        Assert.assertEquals(yard, feet);
     }
 
     @Test
     public void given2InchAnd5Centimeter_shouldReturnEqual() {
-        QuantityMeasurement inch=new QuantityMeasurement(Unit.INCH,2);
-        QuantityMeasurement cm=new QuantityMeasurement(Unit.CM,5);
-        Assert.assertEquals(inch,cm);
+        QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 2);
+        QuantityMeasurement cm = new QuantityMeasurement(Unit.CM, 5);
+        Assert.assertEquals(inch, cm);
+    }
+
+    @Test
+    public void givenTwoLengthValue_shouldReturnAddition() {
+        QuantityMeasurement first = new QuantityMeasurement(Unit.INCH, 2);
+        QuantityMeasurement second = new QuantityMeasurement(Unit.INCH, 2);
+        double totalValue = first.getAddition(second);
+        Assert.assertEquals(4, totalValue, 0);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_shouldReturnAddition() {
+        QuantityMeasurement first = new QuantityMeasurement(Unit.INCH, 2);
+        QuantityMeasurement second = new QuantityMeasurement(Unit.INCH, 2);
+        double totalValue = first.getAddition(second);
+        Assert.assertEquals(4, totalValue, 0);
     }
 }
