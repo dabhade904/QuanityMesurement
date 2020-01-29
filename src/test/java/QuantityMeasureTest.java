@@ -126,4 +126,11 @@ public class QuantityMeasureTest {
         QuantityMeasurement cm = new QuantityMeasurement(Unit.CM, 5);
         Assert.assertEquals(inch, cm);
     }
+
+    @Test
+    public void given1GallonAnd3Liters780ml_shouldReturnEqual() {
+        QuantityMeasurement gallon = new QuantityMeasurement(Unit.GALLON, 1);
+        QuantityMeasurement liter = new QuantityMeasurement(Unit.LITER, 3.78);
+        Assert.assertEquals(gallon, liter);
+    }
 }

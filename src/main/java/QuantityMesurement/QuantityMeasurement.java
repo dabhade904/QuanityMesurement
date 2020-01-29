@@ -22,8 +22,9 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        if (this.unit.unitType != (that.unit.unitType)){
-            return false;}
+        if (this.unit.unitType != (that.unit.unitType)) {
+            return false;
+        }
         convertor(this, that);
         return Double.compare(that.measurement, measurement) == 0;
     }
