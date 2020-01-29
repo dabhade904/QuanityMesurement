@@ -140,4 +140,12 @@ public class QuantityMeasureTest {
         QuantityMeasurement millileter = new QuantityMeasurement(Unit.ML, 1000);
         Assert.assertEquals(liter, millileter);
     }
+
+    @Test
+    public void given1KGAnd1000Grams_shouldReturnEqual(){
+        QuantityMeasurement kg= new QuantityMeasurement(Unit.KG, 1);
+        QuantityMeasurement grams = new QuantityMeasurement(Unit.GRAMS, 1000);
+        Assert.assertEquals(kg, grams);
+    }
+
 }

@@ -8,7 +8,9 @@ public enum Unit {
     CM(UnitType.LENGTH, 1 / 2.54),
     LITER(UnitType.LIQUID_WEIGHT, 1),
     GALLON(UnitType.LIQUID_WEIGHT, 3.78),
-    ML(UnitType.LIQUID_WEIGHT, 0.001);
+    ML(UnitType.LIQUID_WEIGHT, 0.001),
+    KG(UnitType.SOLID_WEIGHT,1),
+    GRAMS(UnitType.SOLID_WEIGHT,0.001);
 
     public double unitValue;
     public UnitType unitType;
