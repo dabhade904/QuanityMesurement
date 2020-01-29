@@ -148,4 +148,11 @@ public class QuantityMeasureTest {
         Assert.assertEquals(kg, grams);
     }
 
+    @Test
+    public void given1TonAnd1000Kgs_shouldReturnEqual(){
+        QuantityMeasurement kg= new QuantityMeasurement(Unit.TON, 1);
+        QuantityMeasurement grams = new QuantityMeasurement(Unit.KG, 1000);
+        Assert.assertEquals(kg, grams);
+    }
+
 }
