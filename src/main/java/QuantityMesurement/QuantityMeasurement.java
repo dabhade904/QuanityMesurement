@@ -13,8 +13,7 @@ public class QuantityMeasurement {
     public void convertor(QuantityMeasurement... measurement) {
         for (int i = 0; i < measurement.length; i++) {
             System.out.println(measurement[i].measurement);
-            measurement[i].measurement = Math.round(measurement[i].measurement * measurement[i].unit.unitValue);
-            measurement[i].unit = Unit.INCH;
+            measurement[i].measurement = (measurement[i].measurement * measurement[i].unit.unitValue);
             System.out.println(measurement[i].measurement);
         }
     }

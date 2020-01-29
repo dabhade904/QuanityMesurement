@@ -33,7 +33,15 @@ public class MeasurementAdditionTest {
     public void given2InchAndCentimeter_shouldReturnAdditionInInch() {
         QuantityMeasurement first = new QuantityMeasurement(Unit.INCH, 2);
         QuantityMeasurement second = new QuantityMeasurement(Unit.CM, 2.5);
-        double totalValue = first.getAddition(second);
+        double totalValue = Math.round(first.getAddition(second));
         Assert.assertEquals(3, totalValue, 0);
+    }
+
+    @Test
+    public void given1GallonAnd3Liter780MiliLiter_shouldReturnAdditionInLiter() {
+        QuantityMeasurement first = new QuantityMeasurement(Unit.GALLON, 1);
+        QuantityMeasurement second = new QuantityMeasurement(Unit.LITER, 3.78);
+        double totalValue = first.getAddition(second);
+        Assert.assertEquals(7.56, totalValue, 0);
     }
 }
