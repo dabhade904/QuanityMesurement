@@ -122,7 +122,7 @@ public class QuantityMeasureTest {
 
     @Test
     public void given2InchAnd5Centimeter_shouldReturnEqual() {
-        QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 2);
+        QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 1.968503935);
         QuantityMeasurement cm = new QuantityMeasurement(Unit.CM, 5);
         Assert.assertEquals(inch, cm);
     }
@@ -142,16 +142,23 @@ public class QuantityMeasureTest {
     }
 
     @Test
-    public void given1KGAnd1000Grams_shouldReturnEqual(){
-        QuantityMeasurement kg= new QuantityMeasurement(Unit.KG, 1);
+    public void given1KGAnd1000Grams_shouldReturnEqual() {
+        QuantityMeasurement kg = new QuantityMeasurement(Unit.KG, 1);
         QuantityMeasurement grams = new QuantityMeasurement(Unit.GRAMS, 1000);
         Assert.assertEquals(kg, grams);
     }
 
     @Test
-    public void given1TonAnd1000Kgs_shouldReturnEqual(){
-        QuantityMeasurement kg= new QuantityMeasurement(Unit.TON, 1);
+    public void given1TonAnd1000Kgs_shouldReturnEqual() {
+        QuantityMeasurement kg = new QuantityMeasurement(Unit.TON, 1);
         QuantityMeasurement grams = new QuantityMeasurement(Unit.KG, 1000);
         Assert.assertEquals(kg, grams);
+    }
+
+    @Test
+    public void givenFahrenheitToCelsius_shouldReturnEqual() {
+        QuantityMeasurement fahrenheit = new QuantityMeasurement(Unit.FAHRENHEIT, 212);
+        QuantityMeasurement celsius = new QuantityMeasurement(Unit.CELSIUS, 100);
+        Assert.assertEquals(fahrenheit, celsius);
     }
 }

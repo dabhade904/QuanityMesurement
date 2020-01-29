@@ -2,8 +2,8 @@ package QuantityMesurement;
 
 public class QuantityMeasurement {
 
-    Unit unit;
-    double measurement;
+    public Unit unit;
+    public double measurement;
 
     public QuantityMeasurement(Unit unit, double measurement) {
         this.unit = unit;

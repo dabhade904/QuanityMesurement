@@ -33,8 +33,8 @@ public class MeasurementAdditionTest {
     public void given2InchAndCentimeter_shouldReturnAdditionInInch() {
         QuantityMeasurement first = new QuantityMeasurement(Unit.INCH, 2);
         QuantityMeasurement second = new QuantityMeasurement(Unit.CM, 2.5);
-        double addition = Math.round(first.getAddition(second));
-        Assert.assertEquals(3, addition, 0);
+        double addition = first.getAddition(second);
+        Assert.assertEquals(3, addition, 0.03);
     }
 
     @Test
@@ -54,10 +54,10 @@ public class MeasurementAdditionTest {
     }
 
     @Test
-    public void given1TonAnd1000Grams_shouldReturnAdditionInKG(){
-        QuantityMeasurement kg= new QuantityMeasurement(Unit.TON, 1);
+    public void given1TonAnd1000Grams_shouldReturnAdditionInKG() {
+        QuantityMeasurement kg = new QuantityMeasurement(Unit.TON, 1);
         QuantityMeasurement grams = new QuantityMeasurement(Unit.GRAMS, 1000);
         double addition = kg.getAddition(grams);
-        Assert.assertEquals(1001,addition,0);
+        Assert.assertEquals(1001, addition, 0);
     }
 }
