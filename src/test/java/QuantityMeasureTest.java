@@ -154,5 +154,4 @@ public class QuantityMeasureTest {
         QuantityMeasurement grams = new QuantityMeasurement(Unit.KG, 1000);
         Assert.assertEquals(kg, grams);
     }
-
 }
