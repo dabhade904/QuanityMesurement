@@ -133,4 +133,11 @@ public class QuantityMeasureTest {
         QuantityMeasurement liter = new QuantityMeasurement(Unit.LITER, 3.78);
         Assert.assertEquals(gallon, liter);
     }
+
+    @Test
+    public void given1LiterAnd1000ml_shouldReturnEqual() {
+        QuantityMeasurement liter = new QuantityMeasurement(Unit.LITER, 1);
+        QuantityMeasurement millileter = new QuantityMeasurement(Unit.ML, 1000);
+        Assert.assertEquals(liter, millileter);
+    }
 }
