@@ -3,16 +3,18 @@ package QuantityMesurement;
 public class QuantityMeasurement {
 
     Unit unit;
-    double measure;
+    double measurement;
 
-    public QuantityMeasurement(Unit unit, double measure) {
+    public QuantityMeasurement(Unit unit, double measurement) {
         this.unit = unit;
-        this.measure = measure;
+        this.measurement = measurement;
     }
 
-    public double convertor(QuantityMeasurement measurement) {
-        double unitValue = measurement.unit.getUnitValue();
-        return Math.round(measurement.measure * unitValue);
+    public void convertor(QuantityMeasurement... measurement) {
+        for (int i = 0; i < measurement.length; i++) {
+            measurement[i].measurement = Math.round(measurement[i].measurement * measurement[i].unit.unitValue);
+            measurement[i].unit = Unit.INCH;
+        }
     }
 
     @Override
@@ -20,20 +22,14 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        double value1 = convertor(this);
-        double value2 = convertor(that);
-        System.out.println(value1 + "   " + value2);
-        if (measure == 0 && that.measure == 0)
-            return true;
-        if (value1 == value2)
-            return true;
-        return Double.compare(that.measure, measure) == 0 &&
-                this.unit == that.unit;
+        if (this.unit.unitType != (that.unit.unitType)){
+            return false;}
+        convertor(this, that);
+        return Double.compare(that.measurement, measurement) == 0;
     }
 
-    public double getAddition(QuantityMeasurement second) {
-        double value1 = convertor(this);
-        double value2 = convertor(second);
-        return value1 + value2;
+    public double getAddition(QuantityMeasurement that) {
+        convertor(this, that);
+        return this.measurement + that.measurement;
     }
 }

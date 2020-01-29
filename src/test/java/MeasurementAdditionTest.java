@@ -22,7 +22,7 @@ public class MeasurementAdditionTest {
     }
 
     @Test
-    public void given1FeetAnd1Fet_shouldReturnAdditionInInch() {
+    public void given1FeetAnd1Feet_shouldReturnAdditionInInch() {
         QuantityMeasurement first = new QuantityMeasurement(Unit.FEET, 1);
         QuantityMeasurement second = new QuantityMeasurement(Unit.FEET, 1);
         double totalValue = first.getAddition(second);

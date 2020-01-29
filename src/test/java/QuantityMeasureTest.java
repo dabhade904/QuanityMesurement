@@ -126,6 +126,4 @@ public class QuantityMeasureTest {
         QuantityMeasurement cm = new QuantityMeasurement(Unit.CM, 5);
         Assert.assertEquals(inch, cm);
     }
-
-
 }

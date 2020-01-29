@@ -2,18 +2,16 @@ package QuantityMesurement;
 
 public enum Unit {
 
-    FEET(12),
-    INCH(1),
-    YARD(36),
-    CM(1 / 2.54);
+    FEET(UnitType.LENGTH, 12),
+    INCH(UnitType.LENGTH, 1),
+    YARD(UnitType.LENGTH, 36),
+    CM(UnitType.LENGTH, 1 / 2.54);
 
-    private double unitValue;
+    public double unitValue;
+    public UnitType unitType;
 
-    Unit(double i) {
-        unitValue = i;
-    }
-
-    public double getUnitValue() {
-        return this.unitValue;
+    Unit(UnitType unitType, double value) {
+        this.unitType = unitType;
+        this.unitValue = value;
     }
 }
