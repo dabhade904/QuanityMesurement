@@ -161,4 +161,15 @@ public class QuantityMeasureTest {
         QuantityMeasurement celsius = new QuantityMeasurement(Unit.CELSIUS, 100);
         Assert.assertEquals(fahrenheit, celsius);
     }
+
+    @Test
+    public void givenDiffrentTypeUnit_shouldReturnException() {
+        try {
+            QuantityMeasurement fahrenheit = new QuantityMeasurement(Unit.FAHRENHEIT, 212);
+            QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 100);
+            fahrenheit.equals(inch);
+        } catch (MesurementException e) {
+            Assert.assertEquals(MesurementException.Type.TYPE_MISMATCH, e.type);
+        }
+    }
 }

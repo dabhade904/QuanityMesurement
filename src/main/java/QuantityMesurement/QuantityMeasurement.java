@@ -10,12 +10,12 @@ public class QuantityMeasurement {
         this.measurement = measurement;
     }
 
-    public void convertor(QuantityMeasurement... measurement) {
-        for (int i = 0; i < measurement.length; i++) {
-            System.out.println(measurement[i].measurement);
-            measurement[i].measurement = (measurement[i].measurement * measurement[i].unit.unitValue);
-            System.out.println(measurement[i].measurement);
+    public void convertor(QuantityMeasurement... measurement) throws MesurementException {
+        if (measurement[0].unit.unitType != (measurement[1].unit.unitType)) {
+            throw new MesurementException(MesurementException.Type.TYPE_MISMATCH);
         }
+        measurement[0].measurement = (measurement[0].measurement * measurement[0].unit.unitValue);
+        measurement[1].measurement = (measurement[1].measurement * measurement[1].unit.unitValue);
     }
 
     @Override
@@ -23,14 +23,14 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        if (this.unit.unitType != (that.unit.unitType)) {
-            return false;
+        try {
+            convertor(this, that);
+        } catch (MesurementException e) {
         }
-        convertor(this, that);
         return Double.compare(that.measurement, measurement) == 0;
     }
 
-    public double getAddition(QuantityMeasurement that) {
+    public double getAddition(QuantityMeasurement that) throws MesurementException {
         convertor(this, that);
         return this.measurement + that.measurement;
     }
